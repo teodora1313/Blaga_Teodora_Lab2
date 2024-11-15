@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Blaga_Teodora_Lab2.Data;
 using Blaga_Teodora_Lab2.Models;
 
-namespace Blaga_Teodora_Lab2.Pages.Books
+namespace Blaga_Teodora_Lab2.Pages.Publishers
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,11 @@ namespace Blaga_Teodora_Lab2.Pages.Books
 
         public IActionResult OnGet()
         {
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
             return Page();
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+        public Publisher Publisher { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -36,7 +35,7 @@ namespace Blaga_Teodora_Lab2.Pages.Books
                 return Page();
             }
 
-            _context.Book.Add(Book);
+            _context.Publisher.Add(Publisher);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
