@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Blaga_Teodora_Lab2.Data;
 using Blaga_Teodora_Lab2.Models;
 
-namespace Blaga_Teodora_Lab2.Pages.Books
+namespace Blaga_Teodora_Lab2.Pages.Authors
 {
     public class IndexModel : PageModel
     {
@@ -19,14 +19,11 @@ namespace Blaga_Teodora_Lab2.Pages.Books
             _context = context;
         }
 
-        public IList<Book> Book { get;set; } = default!;
+        public IList<Author> Author { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Book = await _context.Book
-                .Include(c => c.Author)
-                .Include(b => b.Publisher)
-                .ToListAsync();
+            Author = await _context.Author.ToListAsync();
         }
     }
 }
