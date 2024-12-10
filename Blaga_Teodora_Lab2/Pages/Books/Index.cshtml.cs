@@ -23,17 +23,19 @@ namespace Blaga_Teodora_Lab2.Pages.Books
         public BookData BookD { get; set; }
         public int BookID { get; set; }
         public int CategoryID { get; set; }
+
         public async Task OnGetAsync(int? id, int? categoryID)
         {
             BookD = new BookData();
+
             BookD.Books = await _context.Book
             .Include(b => b.Author)
             .Include(b => b.Publisher)
-            .Include(b => b.BookCategories)
-            .ThenInclude(b => b.Category)
+            .Include(b => b.BookCategories).ThenInclude(b => b.Category)
             .AsNoTracking()
             .OrderBy(b => b.Title)
             .ToListAsync();
+
             if (id != null)
             {
                 BookID = id.Value;

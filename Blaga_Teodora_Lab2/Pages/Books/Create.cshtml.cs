@@ -39,7 +39,6 @@ namespace Blaga_Teodora_Lab2.Pages.Books
             return Page();
         }
 
-
         [BindProperty]
         public Book Book { get; set; } = default!;
 
