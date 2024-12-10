@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Blaga_Teodora_Lab2.Data;
 using Blaga_Teodora_Lab2.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Blaga_Teodora_Lab2.Pages.Borrowings
 {
@@ -28,7 +29,12 @@ namespace Blaga_Teodora_Lab2.Pages.Borrowings
                 return NotFound();
             }
 
-            var borrowing = await _context.Borrowing.FirstOrDefaultAsync(m => m.ID == id);
+            var borrowing = await _context.Borrowing
+                .Include(b => b.Member)
+                .Include(b => b.Book)
+                .Include(b => b.Book.Author)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
             if (borrowing == null)
             {
                 return NotFound();
@@ -37,6 +43,7 @@ namespace Blaga_Teodora_Lab2.Pages.Borrowings
             {
                 Borrowing = borrowing;
             }
+
             return Page();
         }
     }

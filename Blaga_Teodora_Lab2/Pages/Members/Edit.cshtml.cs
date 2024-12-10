@@ -31,6 +31,7 @@ namespace Blaga_Teodora_Lab2.Pages.Members
             }
 
             var member =  await _context.Member.FirstOrDefaultAsync(m => m.ID == id);
+
             if (member == null)
             {
                 return NotFound();
