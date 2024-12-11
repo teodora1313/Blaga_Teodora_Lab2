@@ -7,11 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Blaga_Teodora_Lab2.Data;
 using Blaga_Teodora_Lab2.Models;
-
-using Blaga_Teodora_Lab2.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+
 namespace Blaga_Teodora_Lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : BookCategoriesPageModel
     {
         private readonly Blaga_Teodora_Lab2.Data.Blaga_Teodora_Lab2Context _context;

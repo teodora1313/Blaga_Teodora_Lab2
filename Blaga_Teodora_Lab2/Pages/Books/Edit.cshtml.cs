@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Blaga_Teodora_Lab2.Data;
 using Blaga_Teodora_Lab2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blaga_Teodora_Lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : BookCategoriesPageModel
     {
         private readonly Blaga_Teodora_Lab2.Data.Blaga_Teodora_Lab2Context _context;
