@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blaga_Teodora_Lab2.Migrations.LibraryIdentity
 {
     [DbContext(typeof(LibraryIdentityContext))]
-    [Migration("20241210181939_CreateIdentity")]
+    [Migration("20241211084512_CreateIdentity")]
     partial class CreateIdentity
     {
         /// <inheritdoc />

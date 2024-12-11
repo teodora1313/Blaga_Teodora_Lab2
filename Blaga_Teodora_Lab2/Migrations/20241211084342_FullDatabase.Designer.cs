@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blaga_Teodora_Lab2.Migrations
 {
     [DbContext(typeof(Blaga_Teodora_Lab2Context))]
-    [Migration("20241210174147_Borrowings")]
-    partial class Borrowings
+    [Migration("20241211084342_FullDatabase")]
+    partial class FullDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
