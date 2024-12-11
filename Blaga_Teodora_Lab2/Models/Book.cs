@@ -8,6 +8,8 @@ namespace Blaga_Teodora_Lab2.Models
     {
         public int ID { get; set; }
 
+        [Required(ErrorMessage = "Titlul este obligatoriu.")]
+        [StringLength(150, MinimumLength = 3, ErrorMessage = "Titlul trebuie sa aiba intre 3 si 150 caractere")]
         [Display(Name = "Book Title")]
         public string Title { get; set; }
 

@@ -18,8 +18,8 @@ namespace Blaga_Teodora_Lab2.Models
         public string? Adress { get; set; }
         public string Email { get; set; }
 
-        [RegularExpression(@"^\(?([0-9]{4})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$", ErrorMessage = 
-            "Telefonul trebuie sa fie de forma '0722-123-123' sau '0722.123.123' sau '0722 123 123'")]
+        [RegularExpression(@"^\(?([0]{1})?([1-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$", ErrorMessage = 
+            "Telefonul trebuie sa inceapa cu 0 si sa fie de forma '0722-123-123' sau '0722.123.123' sau '0722 123 123'")]
         public string? Phone { get; set; }
 
         [Display(Name = "Member Name")]
